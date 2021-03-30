@@ -1,0 +1,18 @@
+.mycontainer{
+display: flex; /* crée un contexte flex pour ses enfants */
+flex-direction: column; /* affichage vertical */
+min-height: 100vh; /* toute la hauteur du viewport (compatible IE9+) */
+}
+.wrapper {
+    display: block; /* IE fix */
+    flex: 1 1 auto; /* occupe la hauteur restante */
+    display: flex; /* crée un contexte flex pour ses enfants */
+    flex-direction: row; /* affichage horizontal */
+  }
+
+  .myRow{
+      height: 50vh;
+      display:grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  }

@@ -1,0 +1,139 @@
+@charset "UTF-8";
+.mycontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* crée un contexte flex pour ses enfants */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* affichage vertical */
+  min-height: 100vh;
+  /* toute la hauteur du viewport (compatible IE9+) */
+}
+
+.wrapper {
+  display: block;
+  /* IE fix */
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  /* occupe la hauteur restante */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* crée un contexte flex pour ses enfants */
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  /* affichage horizontal */
+}
+
+.myRow {
+  height: 50vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.contenuC{
+	display: flex;
+	flex-direction: row;
+}
+.contenuDeLaCarte{
+display: flex;
+	flex-direction: row;
+}
+
+.card-data {
+  font-family: 'Roboto', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 250px;
+  max-width: 510px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border-top: 5px solid #d2652d;
+  color: #9e9e9e;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+.card-data *,
+.card-data *:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+
+.card-data figcaption {
+  padding: 12% 10% 14%;
+}
+
+.card-data i {
+  font-size: 54px;
+  color: #fff;
+  width: 80px;
+  line-height: 80px;
+  background-color: #d2652d;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0 0 10px;
+  text-align: center;
+  display: inline-block;
+}
+
+.card-data h3 {
+  color: #3c3c3c;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+.card-data p {
+  font-size: 0.9em;
+  font-weight: 300;
+  margin: 0 0 20px;
+}
+
+.card-data .button {
+  text-decoration: none;
+  color: #777;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.card-data .button:before {
+  background-color: #d2652d;
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  z-index: -1;
+  opacity: 0;
+}
+
+.card-data .button:hover {
+  color: #fff;
+}
+
+.card-data .button:hover:before {
+  top: 0;
+  opacity: 1;
+}
