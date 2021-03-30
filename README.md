@@ -6,6 +6,6 @@ Carte de france interactive
 
 ## Plugin wordpress carte interactif en Ajax
 
-## Shortcode pour l'affichage de la carte : [carte_partenaires]
+#### Shortcode pour l'affichage de la carte : [carte_partenaires]
 
-## Shortcode pour l'affichage des données : [liste_partenaires]
+#### Shortcode pour l'affichage des données : [liste_partenaires]
