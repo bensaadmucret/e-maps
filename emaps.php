@@ -1,6 +1,10 @@
 <?php
 
-use App\Carte;
+
+
+
+
+
 
 /**
  * The plugin bootstrap file
@@ -108,27 +112,34 @@ function mon_action()
     
     $ajax_query = new WP_Query($args);
 
+   
+
     ob_start(); ?>
- 
-	<?php if ($ajax_query->have_posts()) : while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
-	
-	   		
-			<?php if (has_post_thumbnail()) : ?>
-			 <a  href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>
+
+
+<?php if ($ajax_query->have_posts()) : while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
+
+
+<?php if (has_post_thumbnail()) : ?>
+
+<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>
 			<?php the_post_thumbnail(array(180, 100)); ?>
 			</a> 
 		    <?php endif; ?>				    
-	         <h3 style="color:red; padding:10px;"><?php the_title(); ?></h3>
-				<h4> Nombre de Diagnostiqueurs certifiés présent dans cette zone : </h4>					   
-			<strong style="color:red; font-size:18px;"><?php	echo get_field("diagnostiqueurs_certifies", get_the_ID()); ?></strong>
-			<hr><br>
-			<h4> Nombre de vente immobilière présent dans cette zone : </h4>					   
-			<strong style="color:red; font-size:18px;"><?php	echo get_field("nombre_de_vente_immobiliere", get_the_ID()); ?></strong>
-	
-		<?php
-    endwhile; ?>		
-	
-	<?php
+	         <h2 style=" color:red; padding:18px;"><?php the_title(); ?></h2>
+
+           <h4> <?php echo get_field("centre_certifies", get_the_ID()); ?></h4>
+      
+
+    <h4> Numéro de téléphone: <?php echo get_field("nombre_de_centres", get_the_ID()); ?> </h4>
+   
+    
+            
+ 
+    <?php
+    endwhile; ?>
+
+    <?php
     else: echo' <h2>Pas de donnée pour : <span style="color:#FF7E38;">'. $slug . '</span></h2>';
     endif;
     
@@ -148,9 +159,11 @@ function mon_action()
  */
 function run_emaps()
 {
+    require plugin_dir_path(__FILE__) . 'public/partials/Carte.php';
     $actions = array(
   
    new Carte(),
+
   
 );
 

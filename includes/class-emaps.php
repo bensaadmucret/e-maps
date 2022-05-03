@@ -123,6 +123,7 @@ class Emaps {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-emaps-public.php';
 
 		$this->loader = new Emaps_Loader();
+		
 
 	}
 

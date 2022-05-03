@@ -67,6 +67,7 @@
                                             'param':res,
                                         },
                                         function(response){
+                                            console.log(response);
                                                 jQuery('.contenuDeLaCarte').html(response);
                                             }
                                     );

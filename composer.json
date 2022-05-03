@@ -1,0 +1,14 @@
+{
+    "name": "ben/e-maps",
+    "autoload": {
+        "psr-4": {
+            "EMaps\\": "/public/partials/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bensaad mohammed"
+        }
+    ],
+    "require": {}
+}
