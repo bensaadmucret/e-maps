@@ -1,11 +1,5 @@
 <?php
 
-
-
-
-
-
-
 /**
  * The plugin bootstrap file
  *
@@ -21,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       emaps
  * Plugin URI:        https://fr.linkedin.com/in/mohammed-bensaad-developpeur
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Plugin créer pour afficher les données en fonction d'une cartographie
  * Version:           1.0.0
  * Author:            Mohammed Bensaad
  * Author URI:        https://fr.linkedin.com/in/mohammed-bensaad-developpeur

@@ -53,7 +53,7 @@ class Carte
         $code_html = '<figure class="card-data">
 			  <figcaption><i class="ion-ios-rose-outline"></i>
              
-				<h3>Cliquez sur votre région pour découvrir les chiffres</h3>
+				<h3>Cliquez sur votre région pour découvrir votre centre</h3>
                 				
 			  </figcaption>';
         $code_html .= '<div class="cards">';
