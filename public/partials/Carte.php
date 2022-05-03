@@ -34,13 +34,13 @@ class Carte
 <style>
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     grid-gap: 20px;
 }
 
 .card {
     display: grid;
-    grid-template-rows: max-content 200px 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 20px;
 }
 
 .card img {

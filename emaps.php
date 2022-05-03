@@ -82,6 +82,25 @@ function empas_scripts()
 }
 add_action('wp_enqueue_scripts', 'empas_scripts');
 
+// create custom post type Centre de vaccination
+function create_post_type_centre_vaccination()
+{
+    register_post_type('centre_vaccination',
+        array(
+            'labels' => array(
+                'name' => __('Centre de vaccination'),
+                'singular_name' => __('Centre de vaccination')
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'centre_vaccination'),
+            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'comments', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', 'author', 'trackbacks', 'tags', 'categories'),
+            'taxonomies' => array('category', 'post_tag'),
+            'menu_icon' => 'dashicons-admin-multisite',
+        )
+    );
+}
+add_action('init', 'create_post_type_centre_vaccination');
 
 
 function add_js_scripts()
@@ -104,6 +123,7 @@ function mon_action()
     $slug = stripslashes($slug);
     
     $args = array(
+        'post_type' => 'centre_vaccination',
         'category_name' => $slug,
         'posts_per_page' => 10,
         'orderby' => 'title',
