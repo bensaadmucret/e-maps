@@ -82,7 +82,6 @@ function empas_scripts()
 }
 add_action('wp_enqueue_scripts', 'empas_scripts');
 
-// create custom post type Centre de vaccination
 function create_post_type_centre_vaccination()
 {
     register_post_type('centre_vaccination',
@@ -101,6 +100,92 @@ function create_post_type_centre_vaccination()
     );
 }
 add_action('init', 'create_post_type_centre_vaccination');
+
+// create custom plugin settings menu with two submenus for settings and documentation pages
+add_action('admin_menu', 'emaps_plugin_menu');
+
+
+function emaps_plugin_menu()
+{
+    //create custom top-level menu
+    add_menu_page('emaps', 'emaps', 'administrator', __FILE__, 'emaps_settings_page', 'dashicons-admin-multisite');
+
+    //call register settings function
+    add_action('admin_init', 'register_emaps_settings');
+}
+
+
+function register_emaps_settings()
+{
+    //register our settings
+    register_setting('emaps-settings-group', 'emaps_adresse_centre_vaccination');
+    register_setting('emaps-settings-group', 'emaps_numero_centre_vaccination');
+    
+}
+
+
+function emaps_settings_page()
+{
+    ?>
+    <div class="wrap">
+        <h2>Merci de rentrer vos identifiants ACF</h2>
+        <form method="post" action="options.php">
+            <?php settings_fields('emaps-settings-group'); ?>
+            <?php do_settings_sections('emaps-settings-group'); ?>
+            <table class="form-table">
+                <tr valign="top">
+                    <th scope="row">Adresse centre de vaccination</th>
+                    <td><input type="text" name="emaps_adresse_centre_vaccination" value="<?php echo esc_attr(get_option('emaps_adresse_centre_vaccination')); ?>" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Numero centre de vaccination</th>
+                    <td><input type="text" name="emaps_numero_centre_vaccination" value="<?php echo esc_attr(get_option('emaps_numero_centre_vaccination')); ?>" /></td>
+                </tr>
+            </table>
+  
+            <?php submit_button(); ?>
+        </form>
+    </div>
+    <?php
+}
+
+
+
+
+
+
+function get_adress()
+{
+    $adresse = get_option('emaps_adresse_centre_vaccination');
+    return $adresse;
+  
+}
+
+function get_numero()
+{
+    $numero = get_option('emaps_numero_centre_vaccination');
+    return $numero;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function add_js_scripts()
@@ -131,7 +216,7 @@ function mon_action()
     );
     
     $ajax_query = new WP_Query($args);
-
+ 
    
 
     ob_start(); ?>
@@ -148,10 +233,11 @@ function mon_action()
 		    <?php endif; ?>				    
 	         <h2 style=" color:red; padding:18px;"><?php the_title(); ?></h2>
 
-           <h4> <?php echo get_field("centre_certifies", get_the_ID()); ?></h4>
-      
+           <h4> <?php echo get_field( get_adress(), get_the_ID()); ?></h4>
+    
+  
 
-    <h4> Numéro de téléphone: <?php echo get_field("nombre_de_centres", get_the_ID()); ?> </h4>
+    <h4> Numéro de téléphone: <?php echo get_field(get_numero(), get_the_ID()); ?> </h4>
    
     
             
